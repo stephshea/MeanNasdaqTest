@@ -19,7 +19,7 @@ vm.isLoggedIn = function() {
   };
 
 
-vm.addReview = function() {
+vm.addComment = function() {
     var token = jwtHelper.decodeToken($window.sessionStorage.token);
     var username = token.username;
     
@@ -29,7 +29,7 @@ vm.addReview = function() {
     };
     if (vm.commentForm.$valid) {
         stockDataFactory.postComment(id, postData).then(function(response) {
-            console.log(response.status);
+            console.log("line 32", response.status);
             if(response.status === 201) {
                 $route.reload();
             }

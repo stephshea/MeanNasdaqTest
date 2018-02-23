@@ -1,9 +1,9 @@
 <h1>{{vm.title}}</h1>
-<form id = "filter">
-    <label>Search by company:</label>
-    <input type="text" [(ngModel)]="term"/>
+<!--<form id = "filter">-->
+<!--    <label>Search by company:</label>-->
+<!--    <input type="text" [(ngModel)]="term"/>-->
     
-</form>
+<!--</form>-->
 <ul>
     <li ng-repeat="stock in vm.stocks"><a ng-href="#!/stock/{{stock._id}}">{{ stock.Symbol}} | {{ stock.Name }}</a></li>
 </ul>

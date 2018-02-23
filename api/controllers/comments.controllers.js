@@ -77,10 +77,10 @@ module.exports.commentsGetOne = function(req, res) {
 
 var _addComment = function(req, res, stock) {
     //in mongoose subdocuments like reviews are held in an array
+    console.log(req.body.comment);
+    
+    
     stock.comments.push({
-        //sending the comment object
-        // name: req.body.name,
-        // rating: parseInt(req.body.rating, 10),
         comment: req.body.comment
     });
     
@@ -105,7 +105,7 @@ var _addComment = function(req, res, stock) {
 module.exports.commentsAddOne = function(req, res) {
         var stockId = req.params.stockId;
         // var reviewId = req.params.reviewId; 
-    console.log("POST review to stockId", stockId);
+    console.log("POST comment to stockId", stockId);
     
     Stock
         .findById(stockId)

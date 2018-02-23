@@ -10,21 +10,21 @@ router
   .get(ctrlStocks.stocksGetAll);
 
 router
-    .route('/stocks/:stockId')
+    .route('/stock/:stockId')
     .get(ctrlStocks.stocksGetOne);
     // .put(ctrlStocks.stocksUpdateOne);
     //patch updates just one
 
 // Comment routes
 router
-  .route('/stocks/:stockId/comments')
+  .route('/stock/:stockId/comments')
   .get(ctrlComments.commentsGetAll)
 //must be logged in to post comments
   .post(ctrlComments.commentsAddOne);
   // .post(ctrlUsers.authenticate, ctrlComments.commentsAddOne);
   
 router
-    .route('/stocks/:stockId/comments/:commentId')
+    .route('/stock/:stockId/comments/:commentId')
     //creating a url route for data
     .get(ctrlComments.commentsGetOne)
     .put(ctrlComments.commentsUpdateOne);

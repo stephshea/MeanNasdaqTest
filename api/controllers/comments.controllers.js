@@ -12,7 +12,8 @@ module.exports.commentsGetAll = function(req, res) {
         .exec(function(err, doc) {
         var response = {
             status: 200,
-            message : []
+            // message : doc
+            message: []
         };
         if (err) {
             console.log("Error finding stock");

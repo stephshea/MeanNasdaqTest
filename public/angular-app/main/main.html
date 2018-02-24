@@ -2,6 +2,23 @@
 
 <form id = "filter">
     <label>Search by company:</label>
-    <input type="text" [(ngModel)]="term"/>
-    
+    <input type="text" ng-model="search"/>
+    <!--<button ng-click="orderBy('Name')">Name</button>-->
 </form>
+
+<ul>
+    <li ng-repeat="stock in vm.stocks | filter: search | orderBy: 'Symbol'"><a ng-href="#!/stock/{{stock._id}}">{{ stock.Symbol}} | {{ stock.Name }}</a></li>
+</ul>
+
+ <ul>
+    <li dir-paginate="stock in vm.stocks | filter:search | itemsPerPage: 10" current-page="currentPage">{{ Name }}</li>
+</ul>
+
+
+
+ 
+		<dir-pagination-controls 
+			boundary-links="true" 
+			direction-links="true" >
+			</dir-pagination-controls>
+	</div>

@@ -1,14 +1,15 @@
 angular.module('meannasdaq', ['ngRoute', 'angular-jwt']).config(config).run(run);
-
 function config($httpProvider, $routeProvider) {
     $httpProvider.interceptors.push('AuthInterceptor');
     
     $routeProvider
         .when('/', {
-            templateUrl: 'angular-app/main/main.html',
-            access: {
-                restricted: false
-            }
+        templateUrl: 'angular-app/main/main.html',
+        controller: StocksController,
+        controllerAs: 'vm',
+        access: {
+            restricted: false
+        }
         })
         
        .when('/stocks', {

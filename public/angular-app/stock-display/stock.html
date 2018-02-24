@@ -1,13 +1,13 @@
-<h1><a ng-href="{{ vm.stock.StockUrl }}" target= "blank">{{ vm.stock.Symbol }}</a> {{ vm.stock.Name }}</h1>
-<h2>Last Sale: {{ vm.stock.LastSale }}</h2>
-<h2>Sector: {{ vm.stock.Sector }}</h2>
+<h2><a ng-href="{{ vm.stock.StockUrl }}" target= "blank">{{ vm.stock.Symbol }}</a> {{ vm.stock.Name }}</h2>
+<h3>Last Sale: {{ vm.stock.LastSale }}</h3>
+<h3>Sector: {{ vm.stock.Sector }}</h3>
 
-<h3>Comments</h3>
+<h4>Comments</h4>
 
 <ul>
   <li ng-repeat="comment in vm.stock.comments">  <!--{{ comment.username }} says:-->
     
-{{ comment.comment }}</li>
+{{ comment.comment }} | posted: {{ comment.createdOn }}</li>
 </ul>
 
 

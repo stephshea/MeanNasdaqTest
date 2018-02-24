@@ -8,8 +8,15 @@ function stockDataFactory($http) {
     };
     
     function stockList() {
-        return $http.get('/api/stocks?count=15').then(complete).catch(failed);
+        return $http.get('/api/stocks').then(complete).catch(failed);
     }
+    // function stockList() {
+    //     return $http.get('/api/stocks?count=100').then(complete).catch(failed);
+    // }
+    
+    //  function stockListAll() {
+    //     return $http.get('/api/stocks').then(complete).catch(failed);
+    // }
     function stockDisplay(id) {
         return $http.get('/api/stock/' + id).then(complete).catch(failed);
     }

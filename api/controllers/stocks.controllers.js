@@ -4,8 +4,9 @@ var Stock = mongoose.model('Stock')
 module.exports.stocksGetAll = function(req, res) {
 
     var offset = 0;
-    var count = 10;
-    var maxCount = 50;
+    var count = 150;
+    //count works with datafactory and stocklist controller for # items to display
+    var maxCount = 3300;
     
     if(req.query && req.query.offset){
         offset = parseInt(req.query.offset, 10);

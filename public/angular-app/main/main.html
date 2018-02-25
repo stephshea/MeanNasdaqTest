@@ -2,23 +2,36 @@
 
 <form id = "filter">
     <label>Search by company:</label>
+    <input type="text" ng-model="search1"/>
+    <!--<button ng-click="orderBy('Name')">Name</button>-->
+</form>
+<ul>
+    <li dir-paginate="stock in vm.stocks | filter: search1 | orderBy: vm.stocks.Name | itemsPerPage: 10"><a ng-href="#!/stock/{{stock._id}}">{{ stock.Symbol}} | {{ stock.Name }}</a><br />
+    <p>Last Sale: {{ stock.LastSale }}</p>
+<p>Sector: {{ stock.Sector }}</p>
+
+</li>
+</ul>
+<dir-pagination-controls
+                max-size="10"
+                direction-links="true"
+                boundary-links="true" >
+</dir-pagination-controls>
+
+
+<form id = "filter">
+    <label>Search by company:</label>
     <input type="text" ng-model="search"/>
     <!--<button ng-click="orderBy('Name')">Name</button>-->
 </form>
-
 <ul>
     <li ng-repeat="stock in vm.stocks | filter: search | orderBy: 'Symbol'"><a ng-href="#!/stock/{{stock._id}}">{{ stock.Symbol}} | {{ stock.Name }}</a></li>
 </ul>
-
- <ul>
-    <li dir-paginate="stock in vm.stocks | filter:search | itemsPerPage: 10" current-page="currentPage">{{ Name }}</li>
-</ul>
-
-
-
  
-		<dir-pagination-controls 
-			boundary-links="true" 
-			direction-links="true" >
-			</dir-pagination-controls>
-	</div>
+
+
+<!--<div class="text-center">-->
+<!--          <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="dirPagination.tpl.html"></dir-pagination-controls>-->
+<!--          </div>-->
+ 
+	

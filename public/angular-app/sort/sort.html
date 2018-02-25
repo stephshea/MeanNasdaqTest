@@ -1,0 +1,36 @@
+
+<form id = "filter">
+    <label>Search by company:</label>
+    <input type="text" ng-model="search">
+    <!--<button ng-click="orderBy('Name')">Name</button>-->
+</form>
+<hr />
+
+<table ts-wrapper>
+  <thead>
+    <tr>
+      <th ts-criteria="Symbol">Symbol</th>
+      <th ts-criteria="Name">Company</th>
+      <th ts-criteria="LastSale|currency">Last Sale</th>
+      <th ts-criteria="Industry">Industry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="stock in vm.stocks" ts-repeat>
+      <td><a ng-href="#!/stock/{{stock._id}}">{{stock.Symbol}}</a></td>
+      <td>{{stock.Name}}</td>
+      <td>{{stock.LastSale}}</td>
+      <td>{{stock.Industry}}</td>
+    </tr>
+  </tbody>
+</table>
+ <hr />
+ <table>
+    <tr ng-repeat="stock in vm.stocks |orderBy:orderByField:reverseSort">
+        <td><a ng-href="#!/stock/{{stock._id}}">{{ stock.Symbol }}</a></td>
+        <td>{{ stock.Name }}</td>
+        <td>{{ stock.Sector }}</td>
+    </tr>
+    </tbody>
+</table>
+ 

@@ -1,15 +1,6 @@
-angular.module('search',[]);
-
-app.controller('searchCtrl',function($scope,$http){
-    $http.get('data.json').success(function(data, status, headers, config) {
-        $scope.items = data.data;
-    }).error(function(data, status, headers, config) {
-        console.log("No data found..");
-  });
-});
+angular.module('meannasdaq').controller('SearchController', SearchController);
 
 
-angular.module('meannasdaq').controller('StockController', StockController);
 
 function StockController($route, $routeParams, $window, stockDataFactory, AuthFactory, jwtHelper) {
     var vm = this;

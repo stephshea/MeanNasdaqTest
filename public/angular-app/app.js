@@ -1,4 +1,4 @@
-angular.module('meannasdaq', ['ngRoute', 'angular-jwt', 'angularUtils.directives.dirPagination']).config(config).run(run);
+angular.module('meannasdaq', ['ngRoute', 'angular-jwt', 'angularUtils.directives.dirPagination', 'tableSort']).config(config).run(run);
 
 function config($httpProvider, $routeProvider) {
     $httpProvider.interceptors.push('AuthInterceptor');
@@ -6,6 +6,15 @@ function config($httpProvider, $routeProvider) {
     $routeProvider
         .when('/', {
         templateUrl: 'angular-app/main/main.html',
+        controller: StocksController,
+        controllerAs: 'vm',
+        access: {
+            restricted: false
+        }
+        })
+        
+        .when('/sort', {
+        templateUrl: 'angular-app/sort/sort.html',
         controller: StocksController,
         controllerAs: 'vm',
         access: {

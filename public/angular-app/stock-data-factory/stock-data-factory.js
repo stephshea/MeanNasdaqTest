@@ -1,10 +1,21 @@
 angular.module('meannasdaq').factory('stockDataFactory', stockDataFactory);
 
+
+// myApp.factory('SearchService', function() {
+//     var SearchService;
+//     SearchService = {};
+
+//     // The array that will contain search results
+//     SearchService.arrSearchResults = [];
+
+//     return SearchService;
+//   }
+// );
 function stockDataFactory($http) {
     return {
         stockList: stockList,
         stockDisplay: stockDisplay,
-        postComment, postComment
+        postComment: postComment
     };
     
     function stockList() {
@@ -23,6 +34,10 @@ function stockDataFactory($http) {
     
     function postComment(id, comment) {
         return $http.post('/api/stock/' + id + '/comments', comment).then(complete).catch(failed);
+    }
+    
+    function postSearch() {
+        
     }
     
     function complete(response) {

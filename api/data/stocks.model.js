@@ -19,7 +19,7 @@ var stockSchema = new mongoose.Schema({
        type: String,
        required: true},
    LastSale: String,
-   sector: String,
+   Ssector: String,
    StockUrl: String,
   comments: [commentSchema]
 });

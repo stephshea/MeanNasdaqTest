@@ -1,10 +1,13 @@
 var mongoose = require('mongoose');
-var Stock = mongoose.model('Stock')
+var Search = mongoose.model('Search');
 
-module.exports.searchSymbols = function(req, res) {
-
-Stock
-        .findById(Symbol)
+module.exports.getOneSymbol = function(req, res) {
+var symbol = req.params.stock.Symbol;
+    // var thisStock = stockData(stockId);
+    //can stockId be symbol?
+    console.log("GET stockSymbol", symbol);
+Search
+        .findById(symbol)
         .exec(function(err, doc) {
              var response = {
                 status : 200,
@@ -18,7 +21,7 @@ Stock
             } else if(!doc) {
                 response.status = 404;
                 response.message = {
-                        "message" : "Stock Suymbol not found"
+                        "message" : "Stock Symbol not found"
                 };
             }     
             res
@@ -27,29 +30,29 @@ Stock
         });
 };
 
-var _doSearch = function(req, res, stock) {
-    //in mongoose subdocuments like reviews are held in an array
-    console.log(req.body.search);
+// var _doSearch = function(req, res, stock) {
+//     //in mongoose subdocuments like reviews are held in an array
+//     console.log(req.body.search);
     
     
-    stock.search.push({
-        search: req.body.search
-    });
+//     stock.search.push({
+//         search: req.body.search
+//     });
     
-    search.save(function(err, searchUpdated) {
-        //save runs on model instance, in this case model is 'stock'
-      console.log(stock.search);
-      if(err) {
-          res
-            .status(500)
-            .json(err)
-      } else {
-          res
-            .status(201)
-            .json(stock.search[searchUpdated.search.length-1]);
-            //getting the last search query
-      }
+//     search.save(function(err, searchUpdated) {
+//         //save runs on model instance, in this case model is 'stock'
+//       console.log(stock.search);
+//       if(err) {
+//           res
+//             .status(500)
+//             .json(err)
+//       } else {
+//           res
+//             .status(201)
+//             .json(stock.search[searchUpdated.search.length-1]);
+//             //getting the last search query
+//       }
         
-    });
+//     });
     
-};
+// };

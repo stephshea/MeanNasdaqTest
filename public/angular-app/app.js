@@ -58,12 +58,13 @@ function config($httpProvider, $routeProvider) {
         
         .when('/search', {
         templateUrl: 'angular-app/search/search.html',
-        // controller: SearchController,
+        controller: StockController,
         controllerAs: 'vm',
         access: {
                 restricted: false
             }
         })
+        
          .otherwise({
               redirectTo: '/'
         });

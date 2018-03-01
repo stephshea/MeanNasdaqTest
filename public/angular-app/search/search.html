@@ -1,34 +1,35 @@
 <h1>Search {{vm.title}}</h1>
-<!--<form id = "search" ng-submit="vm.addSearch() vm.doSearch()" ng-controller="SearchController">-->
-<!--    <label>Search by Synmbol:</label>-->
-<!--    <input type="text" ng-model="search"/>-->
+<form id = "search" ng-submit="vm.doSearch()" ng-controller="StocksController">
+    <label>Search by Symbol:</label>
+    <input type="text" ng-model="stock"/>
     
-<!--    <button>Search</button>-->
-<!--</form>-->
 
-<ul>
-  <li ng-repeat="search in vm.stock.search">  <!--{{ comment.username }} says:-->
+<!--<ul>-->
+<!--  <li ng-repeat="search in vm.stock.search">  <!--{{ comment.username }} says:-->
     
-{{ search.search }} | posted: {{ search.createdOn }}</li>
-</ul>
+<!--{{ search.search }} | posted: {{ search.createdOn }}</li>-->
+<!--</ul>-->
 
 
-<div>
-  <form name="vm.searchForm" ng-submit="vm.addSearch()">
+<!--<div>-->
+<!--  <form name="vm.searchForm" ng-submit="vm.addSearch()">-->
    
-    Search stock Symbols: <input type="text" name="search" required ng-model="vm.search">
+<!--    Search stock Symbols: <input type="text" name="search" required ng-model="vm.search">-->
     <!--<div ng-show="vm.searchForm.search.$dirty && vm.isSubmitted">-->
     <!--  <p>Enter a symbol</p>-->
     
 
     <button type="submit" class="btn" name="Enter Symbol">Search</button>
   </form>
-</div>
 
-<ul>
-    <li ng-repeat="stock in vm.stocks | filter: search | orderBy: 'Symbol'"><a ng-href="#!/stock/{{stock._id}}">{{ stock.Symbol}} | {{ stock.Name }}</a></li>
-</ul>
 
-<ul>
-    <li ng-repeat="stock in vm.stocks"><a ng-href="#!/stock/{{stock._id}}">{{ stock.Symbol}} | {{ stock.Name }}</a></li>
-</ul>
+<mnSearch></mnSearch>
+
+
+<!--<ul>-->
+<!--    <li ng-repeat="stock in vm.stocks | filter: search | orderBy: 'Symbol'"><a ng-href="#!/stock/{{stock._id}}">{{ stock.Symbol}} | {{ stock.Name }}</a></li>-->
+<!--</ul>-->
+
+<!--<ul>-->
+<!--    <li ng-repeat="stock in vm.stocks"><a ng-href="#!/stock/{{stock._id}}">{{ stock.Symbol}} | {{ stock.Name }}</a></li>-->
+<!--</ul>-->

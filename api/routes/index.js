@@ -4,7 +4,7 @@ var router = express.Router();
 var ctrlStocks = require('../controllers/stocks.controllers.js');
 var ctrlComments = require('../controllers/comments.controllers.js');
 var ctrlUsers = require('../controllers/users.controllers.js');
-var ctrlSearch = require('../controllers/search.controllers.js');
+// var ctrlSearch = require('../controllers/search.controllers.js');
 router
   .route('/stocks')
   .get(ctrlStocks.stocksGetAll);
@@ -34,9 +34,9 @@ router
 
 //search route
 router
-    .route('/search/:Symbol')
+    .route('/stocks/search/:symbol')
     //or symbol, Symbol
-    .get(ctrlSearch.getOneSymbol);
+    .get(ctrlStocks.getOneSymbol);
     
     //Authentication
 router

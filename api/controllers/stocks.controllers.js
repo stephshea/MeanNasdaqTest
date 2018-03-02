@@ -127,35 +127,42 @@ module.exports.stocksUpdateOne= function(req, res) {
 };
 
 module.exports.getOneSymbol = function(req, res) {
-var symbol = req.params.Symbol;
+var symbol = req.params.symbol;
     // var thisStock = stockData(stockId);
     //can stockId be symbol?
     console.log("GET stockSymbol", symbol);
 Stock
-        .findBySymbol(symbol)
-        .exec(function(err, doc) {
-             var response = {
-                status : 200,
-                message: doc
-            };
+       
+        .find ({Symbol: symbol})
+        //({ parameter_name: req.params.name })
+        // .findBySymbol(symbol)
+        .exec(function(err, doc)
+            {
+                // console.log(doc);
+                // console.log(err);
+             
             if(err) {
             console.log("Error finding stock symbol");
-            response.status = 500;
-            response.message = err;
+            res.status = 500;
+            res.message = err;
                 
             } else if(!doc) {
-                response.status = 404;
-                response.message = {
-                        "message" : "Stock Symbol not found"
-                };
-            }     
-            res
-                .status(response.status)
-                .json(response.message);
+                console.log("!doc");
+                res.status(404)
+                .json(
+                        "Stock Symbol not found")
+            }   
+            
+            else { 
+                console.log("res");
+                res
+                .status(200)
+                .json(doc);
+            }
         });
 };
 
-var _doSearch = function(req, res, stock) {
+var _saveSearch = function(req, res, stock) {
     //in mongoose subdocuments like reviews are held in an array
     console.log(req.body.stock);
     console.log(req.body.search);

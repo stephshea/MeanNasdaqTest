@@ -1,14 +1,14 @@
 <h1>Search {{vm.title}}</h1>
-<form id = "search" ng-submit="vm.doSearch()" ng-controller="StocksController">
+<form id = "search" ng-submit="vm.symbolSearch()">
     <label>Search by Symbol:</label>
-    <input type="text" ng-model="stock"/>
+    <input type="text" ng-model="vm.symbol"/>
     
 
-<!--<ul>-->
-<!--  <li ng-repeat="search in vm.stock.search">  <!--{{ comment.username }} says:-->
+<p>{{vm.stock.Name}}</p>  
+  
+
     
-<!--{{ search.search }} | posted: {{ search.createdOn }}</li>-->
-<!--</ul>-->
+<!--{{ search.search }} | posted: {{ search.createdOn }}-->
 
 
 <!--<div>-->
@@ -19,7 +19,7 @@
     <!--  <p>Enter a symbol</p>-->
     
 
-    <button type="submit" class="btn" name="Enter Symbol">Search</button>
+    <button type="submit" class="btn" name="search-symbol">Search</button>
   </form>
 
 

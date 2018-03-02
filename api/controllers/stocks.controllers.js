@@ -128,6 +128,7 @@ module.exports.stocksUpdateOne= function(req, res) {
 
 module.exports.getOneSymbol = function(req, res) {
 var symbol = req.params.symbol;
+
     // var thisStock = stockData(stockId);
     //can stockId be symbol?
     console.log("GET stockSymbol", symbol);
@@ -135,7 +136,6 @@ Stock
        
         .find ({Symbol: symbol})
         //({ parameter_name: req.params.name })
-        // .findBySymbol(symbol)
         .exec(function(err, doc)
             {
                 // console.log(doc);
@@ -162,14 +162,12 @@ Stock
         });
 };
 
-var _saveSearch = function(req, res, stock) {
+var _saveSearch = function(req, res, search) {
     //in mongoose subdocuments like reviews are held in an array
-    console.log(req.body.stock);
-    console.log(req.body.search);
-    
+    console.log("Saved", search);
     
     stock.search.push({
-        search: req.body.search
+        search: req.body.search,
     });
     
     stock.search.save(function(err, searchUpdated) {
@@ -182,10 +180,45 @@ var _saveSearch = function(req, res, stock) {
       } else {
           res
             .status(201)
-            .json(stock.search[searchUpdated.search.length-1]);
+            .json(searchUpdated.searches[searchUpdated.searches.length-1]);
             //getting the last search query
       }
         
     });
     
+};
+
+module.exports.searchAddOne = function(req, res) {
+        var symbol = req.params.symbol;
+        // var reviewId = req.params.reviewId; 
+    console.log("POST search to search page", symbol);
+    
+    Stock
+        .find ({Symbol: symbol})
+        .select('searches')
+        
+        .exec(function(err, doc)
+            {
+                // console.log(doc);
+                // console.log(err);
+             
+            if(err) {
+            console.log("Error finding stock symbol");
+            res.status = 500;
+            res.message = err;
+                
+            } else if(!doc) {
+                console.log("!doc");
+                res.status(404)
+                .json(
+                        "Search Symbol not found")
+            }   
+             if (doc) {
+                _saveSearch(req,res,doc);
+            } else { 
+            res
+                .status(201)
+                .json(doc);
+            }  
+        });
 };

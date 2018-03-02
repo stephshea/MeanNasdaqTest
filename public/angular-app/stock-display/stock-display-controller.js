@@ -10,6 +10,7 @@ function StockController($route, $routeParams, $window, stockDataFactory, AuthFa
     });
 
 
+
 vm.isLoggedIn = function() {
     if (AuthFactory.isLoggedIn) {
       return true;

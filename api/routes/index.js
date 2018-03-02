@@ -37,6 +37,12 @@ router
     .route('/stocks/search/:symbol')
     //or symbol, Symbol
     .get(ctrlStocks.getOneSymbol);
+    // .post(ctrlStocks.getOneSymbol);
+    
+  router
+    .route('/stocks/search/:searches')
+    //or symbol, Symbol
+    .post(ctrlStocks.searchAddOne);  
     
     //Authentication
 router

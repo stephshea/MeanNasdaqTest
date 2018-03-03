@@ -166,13 +166,13 @@ var _saveSearch = function(req, res, search) {
     //in mongoose subdocuments like reviews are held in an array
     console.log("Saved", search);
     
-    stock.search.push({
+    search.searches.push({
         search: req.body.search,
     });
     
-    stock.search.save(function(err, searchUpdated) {
+    search.searches.save(function(err, searchUpdated) {
         //save runs on model instance, in this case model is 'stock'
-      console.log(stock.search);
+      console.log(search);
       if(err) {
           res
             .status(500)

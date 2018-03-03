@@ -3,11 +3,15 @@
     <label>Search by Symbol:</label>
     <input type="text" ng-model="vm.symbol"/>
     
-  <button type="submit" class="btn" name="search-symbol">Search</button>
+  <button type="submit" class="btn btn-primary" name="search-symbol">Search</button>
   </form>
-<p><a ng-href="#!/stock/{{stock._id}}">{{vm.stock.Name}} | {{vm.stock.Symbol}}</a></p>  
+<p><a ng-href="#!/stock/{{vm.stock._id}}">{{vm.stock.Name}} | {{vm.stock.Symbol}}</></p>  
   
-
+<ul>
+  <li ng-repeat="searches in vm.stock.searches">
+    
+{{ searches.search }}</li>
+</ul>
     
 <!--{{ search.search }} | posted: {{ search.createdOn }}-->
 
@@ -21,17 +25,13 @@
     
 
   
-<ul>
-  <li ng-repeat="comment in vm.stock.comments">  <!--{{ comment.username }} says:-->
+<!--<ul>-->
+<!--  <li ng-repeat="comment in vm.stock.comments">  <!--{{ comment.username }} says:-->
     
-{{ comment.comment }} | posted: {{ comment.createdOn }}</li>
-</ul>
+<!--{{ comment.comment }} | posted: {{ comment.createdOn }}</li>-->
+<!--</ul>-->
 
-<ul>
-  <li ng-repeat="searches in vm.stock.searches">  <!--{{ comment.username }} says:-->
-    
-{{ searches.search }}</li>
-</ul>
+
 
 <!--<mnSearch></mnSearch>-->
 

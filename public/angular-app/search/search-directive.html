@@ -1,11 +1,13 @@
-<h2><a ng-href="{{ vm.stock.StockUrl }}" target= "blank">{{ vm.stock.Symbol }}</a> {{ vm.stock.Name }}</h2>
-<h3>Last Sale: {{ vm.stock.LastSale }}</h3>
-<h3>Sector: {{ vm.stock.Sector }}</h3>
-
-<h4>Search History</h4>
+<form id = "search" ng-submit="vm.symbolSearch(); vm.saveSearch()">
+    <label>Search by Symbol:</label>
+    <input type="text" ng-model="vm.symbol"/>
+    
+  <button type="submit" class="btn btn-primary" name="search-symbol">Search</button>
+  </form>
+  
 
 <!--<ul>-->
-<!--  <li ng-repeat="search in vm.stock.searches">  <!--{{ comment.username }} says:-->-->
+<!--  <li ng-repeat="search in vm.stock.searches">  <!--{{ comment.username }} says:-->
     
 <!--{{ search.search }} | posted: {{ search.createdOn }}</li>-->
 <!--</ul>-->

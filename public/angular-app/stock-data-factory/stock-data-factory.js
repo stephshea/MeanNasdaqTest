@@ -43,7 +43,7 @@ function stockDataFactory($http) {
     }
      
      function saveSearch(symbol) {
-        return $http.post('/api/stocks/search/searches', symbol).then(complete).catch(failed);
+        return $http.post('/api/stocks/search/searches/'+ symbol).then(complete).catch(failed);
     }
     
     function complete(response) {

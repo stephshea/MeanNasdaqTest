@@ -1,21 +1,23 @@
 angular.module('meannasdaq').controller('SearchController', SearchController);
 
-function SearchController($route, $routeParams, $window, stockDataFactory, AuthFactory, jwtHelper) {
+function SearchController($route, $routeParams, $window, $location, stockDataFactory, AuthFactory, jwtHelper) {
     var vm = this;
     
  vm.symbolSearch = function() {
      var symbol = vm.symbol.toUpperCase();
+     console.log("vm.symbolSearch", symbol);
      stockDataFactory.searchDisplay(symbol).then(function(response) {
         console.log("searchdisplayctrl", response);
         vm.stock = response.data[0];
         
     var postData = {
         search: vm.search,
+        
     }
      
     // console.log("symbol search is:", vm);
     
-    
+    console.log("just above saveSearch in search-display-controller")
         stockDataFactory.saveSearch(symbol).then(function(response) { 
             console.log("save search", response);
     }).catch(function(err) {

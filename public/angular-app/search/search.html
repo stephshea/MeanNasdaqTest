@@ -1,5 +1,6 @@
 <h1>Search {{vm.title}}</h1>
-<form id = "search" ng-submit="vm.symbolSearch(); vm.saveSearch()">
+<form id = "search" ng-submit="vm.symbolSearch()">
+  <!--; vm.saveSearch()-->
     <label>Search by Symbol:</label>
     <input type="text" ng-model="vm.symbol"/>
     
@@ -16,6 +17,8 @@
     
 {{ searches.search }}</li>
 </ul>
+
+<mnSearch></mnSearch>
     
 <!--{{ search.search }} | posted: {{ search.createdOn }}-->
 
@@ -35,9 +38,6 @@
 <!--{{ comment.comment }} | posted: {{ comment.createdOn }}</li>-->
 <!--</ul>-->
 
-
-
-<!--<mnSearch></mnSearch>-->
 
 
 <!--<ul>-->

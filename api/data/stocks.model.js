@@ -12,9 +12,11 @@ var commentSchema = new mongoose.Schema({
     });
     
 var searchSchema = new mongoose.Schema({
-   // search:{
-   //     type: String,
-   //     required: true},
+    symbol:{
+        type: String,
+        // required: true
+        
+    },
 createdOn: {
          type: Date,
          "default": Date.now

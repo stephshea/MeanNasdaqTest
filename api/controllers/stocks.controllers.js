@@ -162,17 +162,17 @@ Stock
         });
 };
 
-var _saveSearch = function(req, res, search) {
+var _saveSearch = function(req, res, stock) {
     //in mongoose subdocuments like reviews are held in an array
-    console.log("Saved", search);
+    console.log("Saved", stock);
     
-    search.searches.push({
-        search: req.body.search,
+    stock.searches.push({
+         
     });
     
-    search.searches.save(function(err, searchUpdated) {
+    stock.save(function(err, searchUpdated) {
         //save runs on model instance, in this case model is 'stock'
-      console.log(search);
+      console.log(stock);
       if(err) {
           res
             .status(500)
@@ -190,11 +190,10 @@ var _saveSearch = function(req, res, search) {
 
 module.exports.searchAddOne = function(req, res) {
         var symbol = req.params.symbol;
-        // var reviewId = req.params.reviewId; 
     console.log("POST search to search page", symbol);
     
     Stock
-        .find ({Symbol: symbol})
+        .find ({symbol: symbol})
         .select('searches')
         
         .exec(function(err, doc)

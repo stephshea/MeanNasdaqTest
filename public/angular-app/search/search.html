@@ -5,8 +5,12 @@
     
   <button type="submit" class="btn btn-primary" name="search-symbol">Search</button>
   </form>
-<p><a ng-href="#!/stock/{{vm.stock._id}}">{{vm.stock.Name}} | {{vm.stock.Symbol}}</></p>  
   
+  <h4>Search Result</h4>
+<p><a ng-href="#!/stock/{{vm.stock._id}}">{{vm.stock.Name}} | {{vm.stock.Symbol}}</a></p>  
+  
+  
+  <h4>Saved Searches</h4>
 <ul>
   <li ng-repeat="searches in vm.stock.searches">
     

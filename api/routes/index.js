@@ -39,8 +39,10 @@ router
     .get(ctrlStocks.getOneSymbol);
     // .post(ctrlStocks.getOneSymbol);
     
+    
   router
-    .route('/stocks/search/searches')
+    // .route('/stocks/search/searches')
+     .route('/stocks/search/searches/:symbol')
     //or symbol, Symbol
     .post(ctrlStocks.searchAddOne);  
     

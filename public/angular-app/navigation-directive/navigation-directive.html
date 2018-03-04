@@ -17,7 +17,9 @@
        <li ng-class="vm.isActiveTab('links')" ng-if="vm.isLoggedIn()"><a href="#!/links">Links</a></li>
        <li ng-class="vm.isActiveTab('sort')"><a href="#!/sort">Sort</a></li>
        <li ng-class="vm.isActiveTab('search')"><a href="#!/search">Search</a></li>
-     </ul>
+       </ul>
+       
+       <mn-Search></mn-Search>
      
      <form ng-if="!vm.isLoggedIn()" class="navbar-form navbar-right" role="login" ng-submit="vm.login()">
       <div class="form-group" ng-class="{'has-error': vm.error}">
@@ -26,6 +28,7 @@
       <div class="form-group" ng-class="{'has-error': vm.error}">
         <input type="password" class="form-control input-sm" placeholder="Password" ng-model="vm.password" autocapitalize="none">
       </div>
+      
       <button type="submit" class="btn btn-sm btn-success">Login</button>
     </form>
     <ul ng-if="vm.isLoggedIn()" class="nav navbar-nav navbar-right">

@@ -167,12 +167,12 @@ var _saveSearch = function(req, res, stock) {
     console.log("Saved", stock);
     
     stock.searches.push({
-         
+        //  search: req.body.search
     });
     
     stock.save(function(err, searchUpdated) {
         //save runs on model instance, in this case model is 'stock'
-      console.log(stock);
+      console.log(req.body.search);
       if(err) {
           res
             .status(500)
@@ -189,7 +189,7 @@ var _saveSearch = function(req, res, stock) {
 };
 
 module.exports.searchAddOne = function(req, res) {
-        var symbol = req.params.symbol;
+        var symbol = req.params.Symbol;
     console.log("POST search to search page", symbol);
     
     Stock

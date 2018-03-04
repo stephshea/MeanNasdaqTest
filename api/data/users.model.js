@@ -1,5 +1,15 @@
 var mongoose = require('mongoose');
 
+var searchSchema = new mongoose.Schema({
+   // search:{
+   //     type: String,
+   //     required: true},
+createdOn: {
+         type: Date,
+         "default": Date.now
+   }
+});
+
 var userSchema = new mongoose.Schema({
    username: {
        type: String,

@@ -42,9 +42,12 @@ router
     
   router
     // .route('/stocks/search/searches')
-     .route('/stocks/search/searches/:symbol')
-    //or symbol, Symbol
+    .route('/stocks/search/searches/:symbol')
+    // or symbol, Symbol
     .post(ctrlStocks.searchAddOne);  
+  
+    // .route('users:user/searchId:searchId/searchSymbol/searchSymbol')
+    // .post(ctrlUsers.searchAddOne);
     
     //Authentication
 router

@@ -4,6 +4,6 @@ function mnSearch() {
   return {
     restrict: 'E',
     //can only be used as an element
-    templateUrl: 'angular-app/search-directive/search-directive.html'
+    templateUrl: 'angular-app/search/search-directive.html'
   };
 }

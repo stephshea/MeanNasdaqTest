@@ -5,17 +5,24 @@ function SearchController($route, $routeParams, $window, $location, stockDataFac
     
  vm.symbolSearch = function() {
      var symbol = vm.symbol.toUpperCase();
+     console.log("vm.symbolSearch", symbol);
      stockDataFactory.searchDisplay(symbol).then(function(response) {
         console.log("searchdisplayctrl", response);
         vm.stock = response.data[0];
         
+
     // var postData = {
     //     search: vm.search,
     // }
+
+    var postData = {
+        search: vm.search,
+        
+    }
      
     // console.log("symbol search is:", vm);
     
-    
+    console.log("just above saveSearch in search-display-controller")
         stockDataFactory.saveSearch(symbol).then(function(response) { 
             console.log("save search", response);
     }).catch(function(err) {

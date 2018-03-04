@@ -168,6 +168,7 @@ var _saveSearch = function(req, res, stock) {
     
     stock.searches.push({
         //  search: req.body.search
+         symbol: req.params.symbol
     });
     
     stock.save(function(err, searchUpdated) {
@@ -189,17 +190,21 @@ var _saveSearch = function(req, res, stock) {
 };
 
 module.exports.searchAddOne = function(req, res) {
+
         var symbol = req.params.Symbol;
+
+    console.log("Inside searchAddOne", req.params)
+        var symbol = req.params.symbol;
     console.log("POST search to search page", symbol);
     
     Stock
-        .find ({symbol: symbol})
-        .select('searches')
+        .find ({Symbol: symbol})
+        // .select('searches')
         
         .exec(function(err, doc)
             {
-                // console.log(doc);
-                // console.log(err);
+                console.log(doc);
+                console.log(err);
              
             if(err) {
             console.log("Error finding stock symbol");
@@ -213,11 +218,13 @@ module.exports.searchAddOne = function(req, res) {
                         "Search Symbol not found")
             }   
              if (doc) {
+                 console.log('found doc', doc);
                 _saveSearch(req,res,doc);
-            } else { 
-            res
-                .status(201)
-                .json(doc);
-            }  
+            } 
+            // else { 
+            // res
+            //     .status(201)
+            //     .json(doc);
+            // }  
         });
 };

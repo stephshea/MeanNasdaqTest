@@ -19,7 +19,7 @@
     <tr ng-repeat="stock in vm.stocks" ts-repeat>
       <td><a ng-href="#!/stock/{{stock._id}}">{{stock.Symbol}}</a></td>
       <td>{{stock.Name}}</td>
-      <td>{{stock.LastSale}}</td>
+      <td>{{stock.LastSale | orderBy: '-LastSale '}}</td>
       <td>{{stock.Industry}}</td>
     </tr>
   </tbody>

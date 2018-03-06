@@ -12,15 +12,15 @@ var commentSchema = new mongoose.Schema({
     });
     
 var searchSchema = new mongoose.Schema({
-    symbol:{
+    Symbol:{
         type: String,
-        // required: true
+        required: true
         
     },
 createdOn: {
          type: Date,
          "default": Date.now
-   }
+  }
 });
 
 var stockSchema = new mongoose.Schema({

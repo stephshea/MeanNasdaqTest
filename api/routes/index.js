@@ -4,10 +4,11 @@ var router = express.Router();
 var ctrlStocks = require('../controllers/stocks.controllers.js');
 var ctrlComments = require('../controllers/comments.controllers.js');
 var ctrlUsers = require('../controllers/users.controllers.js');
-// var ctrlSearch = require('../controllers/search.controllers.js');
+var ctrlSearch = require('../controllers/search.controllers.js');
 router
   .route('/stocks')
   .get(ctrlStocks.stocksGetAll);
+  //when go to stocks.html -- app.js contains controller so runs controller which runs function from index.js, then data is passed to datafactory calls display controller to display on front-end
 
 router
     .route('/stock/:stockId')
@@ -36,15 +37,14 @@ router
 router
     .route('/stocks/search/:symbol')
     //or symbol, Symbol
-    .get(ctrlStocks.getOneSymbol);
-    // .post(ctrlStocks.getOneSymbol);
+    .get(ctrlStocks.getOneSymbol)
+    .post(ctrlStocks.getOneSymbol);
     
-    
-  router
-    // .route('/stocks/search/searches')
-    .route('/stocks/search/searches/:symbol')
-    // or symbol, Symbol
-    .post(ctrlStocks.searchAddOne);  
+  // router
+  //   // .route('/stocks/search/searches')
+  //   .route('/searches')
+  //   // or symbol, Symbol
+  //   .post(ctrlStocks.searchAddOne);  
   
     // .route('users:user/searchId:searchId/searchSymbol/searchSymbol')
     // .post(ctrlUsers.searchAddOne);

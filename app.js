@@ -3,7 +3,7 @@ var express = require('express');
 var app = express();
 var path = require('path');
 var bodyParser = require('body-parser');
-var routes = require('./api/routes/');
+var routes = require('./api/routes');
 
 app.set('port', process.env.PORT);
 //middleware gets css etc - has to be above static path to get all

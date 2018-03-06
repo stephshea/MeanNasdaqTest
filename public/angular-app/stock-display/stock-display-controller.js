@@ -25,7 +25,7 @@ vm.addComment = function() {
     var username = token.username;
     
     var postData = {
-        // name: username,
+        //when function runs, returned data is stored in postData
         comment: vm.comment
     };
     if (vm.commentForm.$valid) {

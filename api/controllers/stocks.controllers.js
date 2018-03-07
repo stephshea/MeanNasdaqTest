@@ -167,26 +167,26 @@ module.exports.getOneSymbol = function(req, res) {
                         .json(doc);
                 // } 
                 
-                        doc.searches.push({
-                        Symbol: req.body.symbol
-                        //  symbol: req.params.symbol
-                    });
+                //         doc.searches.push({
+                //         Symbol: req.body.symbol
+                //         //  symbol: req.params.symbol
+                //     });
 
-                    doc.save(function(err, searchUpdated) {
-                            //save runs on model instance, in this case model is 'stock'
-                            console.log(req.body.symbol);
-                            if (err) {
-                                res
-                                    .status(500)
-                                    .json(err)
-                            }
-                            else {
-                                res
-                                    .status(201)
-                                    .json(searchUpdated.searches[searchUpdated.searches.length - 1]);
-                                //getting the last search query
-                            }
-                        });
+                //     doc.save(function(err, searchUpdated) {
+                //             //save runs on model instance, in this case model is 'stock'
+                //             console.log(req.body.symbol);
+                //             if (err) {
+                //                 res
+                //                     .status(500)
+                //                     .json(err)
+                //             }
+                //             else {
+                //                 res
+                //                     .status(201)
+                //                     .json(searchUpdated.searches[searchUpdated.searches.length - 1]);
+                //                 //getting the last search query
+                //             }
+                //         });
                 }
             
             //  if (doc) {

@@ -36,3 +36,13 @@
   .showIfLast {
     display: none;
   }
+  
+  th {
+    font-size: 1.5em;
+    padding: 0em .5em;
+  }
+
+td {
+  margin: 0, 1em;
+  padding: 0em 1em;
+}

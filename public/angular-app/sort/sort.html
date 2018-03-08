@@ -7,20 +7,21 @@
 <hr />
 
 <table ts-wrapper>
+  <p>Click on a heading to sort</p>
   <thead>
     <tr>
       <th ts-criteria="Symbol">Symbol</th>
       <th ts-criteria="Name">Company</th>
-      <th ts-criteria="LastSale">Last Sale</th>
       <th ts-criteria="Industry">Industry</th>
+      <th ts-criteria="Sector">Sector</th>
     </tr>
   </thead>
   <tbody>
     <tr ng-repeat="stock in vm.stocks" ts-repeat>
       <td><a ng-href="#!/stock/{{stock._id}}">{{stock.Symbol}}</a></td>
       <td>{{stock.Name}}</td>
-      <td>{{stock.LastSale | orderBy: '-LastSale '}}</td>
       <td>{{stock.Industry}}</td>
+      <td>{{stock.Sector}}</td>
     </tr>
   </tbody>
 </table>

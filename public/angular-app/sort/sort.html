@@ -1,19 +1,12 @@
-
-<form id = "filter">
-    <label>Search by company:</label>
-    <input type="text" ng-model="search">
-    <!--<button ng-click="orderBy('Name')">Name</button>-->
-</form>
-<hr />
-
 <table ts-wrapper>
   <p>Click on a heading to sort</p>
   <thead>
     <tr>
-      <th ts-criteria="Symbol">Symbol</th>
+      <th ts-criteria="Symbol" ts-default>Symbol</th>
       <th ts-criteria="Name">Company</th>
       <th ts-criteria="Industry">Industry</th>
       <th ts-criteria="Sector">Sector</th>
+      <th ts-criteria="LastSale | parseFloat">Price</th>
     </tr>
   </thead>
   <tbody>
@@ -22,6 +15,7 @@
       <td>{{stock.Name}}</td>
       <td>{{stock.Industry}}</td>
       <td>{{stock.Sector}}</td>
+      <td>{{stock.LastSale | currency }}</td>
     </tr>
   </tbody>
 </table>

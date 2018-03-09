@@ -1,13 +1,5 @@
 <h1>Welcome to MeanNasdaq</h1>
 
-
-<form id = "search">
-    <label>Search by company:</label>
-    <input type="text" value="enter company name" [(ngModel)]="term">
-    <button type = "submit">Search</button>
-    <!--<button ng-click="orderBy('Name')">Name</button>-->
-</form>
-<hr />
 <form id = "filter">
     <label>Search by company:</label>
     <input type="text" ng-model="search1"/>
@@ -15,7 +7,7 @@
 </form>
 <ul>
     <li dir-paginate="stock in vm.stocks | filter: search1 | orderBy: vm.stocks.Name | itemsPerPage: 10"><a ng-href="#!/stock/{{stock._id}}">{{ stock.Symbol}} | {{ stock.Name }}</a><br />
-    <p>Last Sale: {{ stock.LastSale }}</p>
+    <p>Last Sale: {{ stock.LastSale|currency }}</p>
 <p>Sector: {{ stock.Sector }}</p>
 
 </li>
